@@ -21,6 +21,7 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
+
 class ProfileIn(BaseModel):
     name:str="Athlete"; age:int=25; sex:str="male"; height_cm:float=175; weight_kg:float=70; activity:str="moderate"; goal:str="recomp"
 class ProgressIn(BaseModel):
