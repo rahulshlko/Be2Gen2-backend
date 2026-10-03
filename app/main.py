@@ -10,7 +10,16 @@ from .rag import answer
 
 Base.metadata.create_all(bind=engine)
 app=FastAPI(title="Be2Gen2 API", version="1.0.0")
-app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:3000"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:3000",
+        "https://be2-gen2.vercel.app"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 
 class ProfileIn(BaseModel):
     name:str="Athlete"; age:int=25; sex:str="male"; height_cm:float=175; weight_kg:float=70; activity:str="moderate"; goal:str="recomp"
